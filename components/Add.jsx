@@ -26,6 +26,10 @@ const Add = ({setClose}) => {
         setExtraOptions(prev=>[...prev, extra])
     }
 
+    const handleCreate = async () => {
+
+    }
+
   return (
     <div className={styles.container}>
         <div className={styles.wrapper}>
@@ -37,7 +41,7 @@ const Add = ({setClose}) => {
             </div>
             <div className={styles.item}>
                 <label className={styles.label}>Title</label>
-                <input type="text" onChange={(e)=>setTitle(e.target.value)}/>
+                <input type="text" className={styles.input} onChange={(e)=>setTitle(e.target.value)}/>
             </div>
             <div className={styles.item}>
                 <label className={styles.label}>Description</label>
@@ -45,18 +49,26 @@ const Add = ({setClose}) => {
             </div>
             <div className={styles.item}>
                 <label className={styles.label}>Prices</label>
-                <input type="number" placeholder="Small" className={'${styles.input} ${styles.inputSm}'} onChange={(e)=>changePrice(e,0)}/>
-                <input type="number" placeholder="Medium" className={'${styles.input} ${styles.inputMd}'} onChange={(e)=>changePrice(e,1)}/>
-                <input type="number" placeholder="Large" className={'${styles.input} ${styles.inputLg}'} onChange={(e)=>changePrice(e,2)}/>
+                <div className={styles.priceContainer}>
+                    <input type="number" placeholder="Small" className={`${styles.input} ${styles.inputSm}`} onChange={(e)=>changePrice(e,0)}/>
+                    <input type="number" placeholder="Medium" className={`${styles.input} ${styles.inputSm}`} onChange={(e)=>changePrice(e,1)}/>
+                    <input type="number" placeholder="Large" className={`${styles.input} ${styles.inputSm}`} onChange={(e)=>changePrice(e,2)}/>
+                </div>
             </div>
             <div className={styles.item}>
                 <label className={styles.label}>Extra</label>
                 <div className={styles.extra}>
-                    <input type="text" placeholder="Item" name="text" className={'${styles.input} ${styles.inputSm}'} onChange={handleExtraInput}/>
-                    <input type="number" placeholder="Price" name="price" className={'${styles.input} ${styles.inputSm}'} onChange={handleExtraInput}/>
+                    <input type="text" placeholder="Item" name="text" className={`${styles.input} ${styles.inputSm}`} onChange={handleExtraInput}/>
+                    <input type="number" placeholder="Price" name="price" className={`${styles.input} ${styles.inputSm}`} onChange={handleExtraInput}/>
                     <button className={styles.extraButton} onClick={handleExtra}>Add</button>
                 </div>
+                <div className={styles.extraItems}>
+                    {extraOptions.map(option=> (
+                        <span key={option.text} className={styles.extraItem}>{option.text}</span>
+                    ))}
+                </div>
             </div>
+            <button className={styles.addButton} onClick={handleCreate}>Create</button>
             
         </div>
     </div>

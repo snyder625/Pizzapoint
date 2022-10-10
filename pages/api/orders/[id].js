@@ -4,7 +4,7 @@ import Order from '../../../models/OrderModel'
 const handler = async (req, res) => {
     const { method, query: {id} } = req;
 
-    dbConnect();
+    await dbConnect();
 
     if (method === 'GET') {
         try {

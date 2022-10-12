@@ -20,7 +20,7 @@ export default function Home({pizzaList, isAdmin}) {
       <Slider />
       {isAdmin && (<AddButton setClose={setClose} />)}
       <PizzaList pizzaList={pizzaList} />
-      {!close && <Add setClose={setClose} />}
+      {(isAdmin && !close) && <Add setClose={setClose} />}
     </div>
   )
 }
@@ -35,7 +35,8 @@ export const getServerSideProps = async (ctx) => {
   }
   return {
     props: {
-      pizzaList: res.data
+      pizzaList: res.data,
+      isAdmin
     }
   }
 }

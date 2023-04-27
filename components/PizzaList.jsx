@@ -5,7 +5,7 @@ const PizzaList = ({pizzaList}) => {
   return (
     <div className={styles.container}>
         <h1 className={styles.title}>THE BEST PIZZA IN THE CITY</h1>
-        <p className={styles.desc}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque dapibus libero ut pellentesque. Duis sed nunc vitae libero porttitor bibendum. In ultricies lacus eget pulvinar auctor. Nulla facilisi.</p>
+        <p className={styles.desc}>Enjoy authentic pizza made with fresh ingredients and baked to perfection. Vegetarian and gluten-free options available. Cozy atmosphere for dining with family and friends. Come taste our mouth-watering pizzas!</p>
     
         <div className={styles.wrapper}>
             {pizzaList.map((pizza)=> (

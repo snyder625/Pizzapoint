@@ -28,7 +28,7 @@ export default function Home({pizzaList, isAdmin}) {
 export const getServerSideProps = async (ctx) => {
   const myCookie = ctx.req?.cookies;
   let isAdmin = false;
-  const res = await axios.get(`process.env.NEXT_PUBLIC_API_URL/api/products`);
+  const res = await axios.get(process.env.NEXT_PUBLIC_API_URL + '/api/products');
 
   if(myCookie.token === process.env.TOKEN) {
     isAdmin = true;
